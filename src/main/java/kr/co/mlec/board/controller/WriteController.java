@@ -24,7 +24,7 @@ public class WriteController extends HttpServlet{
 	board.setContent(request.getParameter("content"));
 	mapper.insertBoard(board);
 	
-	response.sendRedirect("/board/ListBoard.do");
+	response.sendRedirect("/MiniP/board/ListBoard.do");
 	
 	
 	}
