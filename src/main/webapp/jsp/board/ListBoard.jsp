@@ -91,10 +91,6 @@ text-align : center;
 </div>
   <div class="col-md-4"></div>
   </div>
-  <form action = "" method = "post">
-<a href = "<c:url value = '/jsp/board/WriteForm.jsp/>">글쓰기</a>
-  </form>
-  
-	
+ <button><a href = "<c:url value ='/board/WriteForm.do'/>">글쓰기</a></button>
 	</body>
 </html>
