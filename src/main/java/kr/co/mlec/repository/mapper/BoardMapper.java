@@ -7,4 +7,5 @@ import kr.co.mlec.repository.domain.Board;
 public interface BoardMapper {
 	List<Board> selectBoardList();
 	void insertBoard(Board board);
+	void deleteBoard(int no);
 }
