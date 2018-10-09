@@ -27,6 +27,7 @@ public class ListBoardController extends HttpServlet {
 		try {
 			pageNo = Integer.parseInt(request.getParameter("pageNo"));
 		} catch(Exception e) {}
+		
 		Page page = new Page();
 		page.setPageNo(pageNo);
 		
@@ -41,6 +42,20 @@ public class ListBoardController extends HttpServlet {
 		request.setAttribute("count", count);
 		request.setAttribute("lastPage", lastPage);
 		request.setAttribute("pageNo", pageNo);
+		//페이지 블록 계산하기
+		int tabSize = 10;
+		int currTab = (pageNo -1) / tabSize+1;
+		int beginPage = (currTab -1 )* tabSize + 1;
+		int endPage = (currTab * tabSize < lastPage) ? currTab * tabSize : lastPage;
+		
+		boolean prev = beginPage != 1;
+		boolean next = endPage !=lastPage;
+		
+
+		request.setAttribute("beginPage", beginPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("prev", prev);
+		request.setAttribute("next", next);
 		
 		
 		

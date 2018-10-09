@@ -42,7 +42,7 @@ font-size : 48px;
 text-align : center;
 }
 .nav {
-    padding-left: 650px;
+    padding-left: 520px;
     margin-bottom: 0;
     list-style: none;
 }
@@ -99,12 +99,16 @@ text-align : center;
   <c:if test = "${count !=0}">
 				  <nav class = "nav">
 				  <ul class="pagination">
-				   <!--  <li>
-				      <a href="#" aria-label="Previous">
-				        <span aria-hidden="true">&laquo;</span>
-				      </a> -->
-				    </li>
-				    <c:forEach var = "i" begin = "1" end = "${lastPage}">
+				   <li <c:if test="${prev eq false}">class="disabled"</c:if> >
+			      <a    <c:choose>	 
+			      			<c:when test="${prev eq true}">href="ListBoard.do?pageNo=${beginPage - 1}"</c:when> 
+			      			<c:otherwise>href="#1"</c:otherwise>
+			      		</c:choose>
+			      		aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+				    <c:forEach var = "i" begin = "${beginPage}" end = "${endPage}">
 				    <c:choose>
 				    <c:when test = "${i eq pageNo}">
 				    <li class = "active"><a href = "#1">${i}</a></li>
@@ -115,10 +119,14 @@ text-align : center;
 				    </c:choose>
 				   </c:forEach>
 				    
-				    <li>
-				     <!--  <a href="#" aria-label="Next">
+				    <li<c:if test = "${next eq false}"> class = "disalbed"</c:if>>
+				      <a<c:choose> 
+				      <c:when test = "${next eq true}">href="ListBoard.do?pageNo=${endPage + 1}"</c:when>
+				      <c:otherwise>htef = "#${endPage+1}"</c:otherwise>
+				    </c:choose>
+				      aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
-				      </a> -->
+				      </a>
 				    </li>
 				  </ul>
 				</nav>
