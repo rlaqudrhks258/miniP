@@ -13,11 +13,8 @@
     </resultMap>
     
     <!-- 전체 목록 가져오기  -->
-    <select id = "selectBoardList" resultMap = "boardMap">
-    		select *
-		  from tb_board
-		 order by no desc
-    </select>
+    
+   
    <insert id = "insertBoard" parameterType = "board">
    insert into tb_board(
    no, title, writer, content)
@@ -31,4 +28,39 @@
    where no = #{no}
    
    </delete>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <!-- paging -->
+   
+   
+     <!-- 전체 게시물 조회 -->
+   <select id = "selectBoardCount" resultType = "int">
+   select count(*)
+   from tb_board
+   
+   </select>
+   
+   	<select id="selectBoardList" parameterType="Page" resultMap="boardMap">
+		select *
+		  from (select rownum rnum, a.* 	
+			      from (select *
+				    	  from tb_board 
+					     order by no desc) a
+			     where rownum &lt;= #{end})
+		 where rnum &gt;= #{begin}			     
+	</select>
+   
+   
+   
+   
+   
+   
 </mapper>

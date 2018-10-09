@@ -41,15 +41,7 @@
   <div class="col-md-4">
   
 					
-  <tr>
-	<tr>
-	<th class = 'col' scope="col">제목</th>
-	<td class = "fortd"></td>
-	</tr>
-	<th class = 'col' scope="col">글쓴이</th>
-	<th class = 'col' scope="col">날짜</th>
-	<th class = 'col' scope="col">조회수</th>
-	</tr>
+ 
   
   
   

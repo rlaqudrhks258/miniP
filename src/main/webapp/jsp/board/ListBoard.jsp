@@ -41,6 +41,11 @@ font-size : 48px;
 .col{
 text-align : center;
 }
+.nav {
+    padding-left: 650px;
+    margin-bottom: 0;
+    list-style: none;
+}
 
 					
 					</style>
@@ -91,6 +96,33 @@ text-align : center;
 </div>
   <div class="col-md-4"></div>
   </div>
+  <c:if test = "${count !=0}">
+				  <nav class = "nav">
+				  <ul class="pagination">
+				   <!--  <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a> -->
+				    </li>
+				    <c:forEach var = "i" begin = "1" end = "${lastPage}">
+				    <c:choose>
+				    <c:when test = "${i eq pageNo}">
+				    <li class = "active"><a href = "#1">${i}</a></li>
+				    </c:when>
+				    <c:otherwise>
+				    <li><a href = "ListBoard.do?pageNo=${i}">${i}</a></li>
+				    </c:otherwise>
+				    </c:choose>
+				   </c:forEach>
+				    
+				    <li>
+				     <!--  <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a> -->
+				    </li>
+				  </ul>
+				</nav>
+				</c:if>
  <button><a href = "<c:url value ='/board/WriteForm.do'/>">글쓰기</a></button>
 	</body>
 </html>

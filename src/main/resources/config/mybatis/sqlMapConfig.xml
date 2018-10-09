@@ -6,7 +6,7 @@
 	<properties resource="config/mybatis/db.properties"/>
 	<typeAliases>
 		<typeAlias alias="Board" type="kr.co.mlec.repository.domain.Board" />
-		
+		<typeAlias alias="Page" type="kr.co.mlec.repository.domain.Page" />
 	</typeAliases>
 	
 	<environments default="development">
